@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+import argparse
+import requests
+import logging
+parser = argparse.ArgumentParser()
+parser.add_argument("-ip", help="IPv6 For Border Router")
+parser.add_argument("-p", help="Pan_Id For Border Router in Hexadecimal")
+args = parser.parse_args()
+if args.ip:
+    IPAddr = args.ip
+    url = "http://["+IPAddr+"]/conf"
+    print url
+else:
+    print "IPv6 For Border Router Not Given"
+
+if args.p:
+    PAN_ID = int(args.p,16)
+else:
+    print "Please Provide An Invalid Pan_Id To Be Changed Into"
+import json
+data = json.dumps({"pan_id": PAN_ID})
+header = "application/json"
+
+r = requests.post(url, data=data)
+print r.text
