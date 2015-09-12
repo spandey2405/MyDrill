@@ -1,5 +1,8 @@
-import os
+import requests
+import json
+r = requests.get("https://graph.facebook.com/v2.4/275476105939521/feed?format=json&access_token=717690628267029|Ms4V8xoBgdW1RT7mFhMzc8QgoUA&limit=25&until=1441464431&__paging_token=enc_AdBcVahdTTjLrA9tDOZC52qZBcjM5qo6Dm3LTB5fUQJc9V28yaBfzP6c4PwOCsBLlHXiaFGLZBWbVfYv4tqu1ZBCWskyknCyuYZCfnAoekZAfZB20gFCgZDZD")
 
-request=os.system('curl -i -X GET \
- "https://graph.facebook.com/v2.4/275476105939521/feed?__paging_token=enc_AdASh5rJJIxfKyqx29nlDEu98vqM2ve089fKxvoQQdFtn3nzQ3I5JzKxH2NCyhqKnFlZACZBYVAaeuTGJHYTuVbdZC09G5mCGFJUZBBsWLCD9fdVYwZDZD&limit=100&access_token=CAACEdEose0cBAOjEKZAbGZAxya7MIze5ip5ZBazeZAJVQKpJC1uwB9VLdlinCw0sdTlBm99Qi5Ws4g8GCNR5glx4MJgQY1ABgPTQnPVtst3DLhBUZB4qi41jxMG1bZBywZBP6hQudM0X2zPNHj3e0T71kdOaNWWAbBc1w77FYi28Pu2JJfn29XxkBRqwMZA5hZBHXw6ZBVxEtnArHYMO2us6kZB"')
-print request
+data = r.json()
+
+for post in data["data"]:
+ print 
